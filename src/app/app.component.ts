@@ -7,21 +7,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Taco recipes';
 
-  recipe:any;
-  recipes=[];
-  constructor(private http : HttpClient){
+  private li: any = []
+  
+  constructor(private http : HttpClient){}
 
-  }
-
-  ngOnInit(): void {
-    this.http.get('http://taco-randomizer.herokuapp.com/random/?full-taco=true').subscribe(Response => {
-    console.log(Response);
-    this.recipe=Response;
-    this.recipes=this.recipe.list;
-    });
+  getData() {
+    this.http.get('http://taco-randomizer.herokuapp.com/random/?full-taco=true').subscribe((Response) => {
+    this.li = Response;
+    console.log(this.li)
+    })
   }
 
 }
