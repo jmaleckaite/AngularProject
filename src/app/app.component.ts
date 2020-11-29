@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,14 +11,14 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'Taco recipes';
 
-  private li: any = []
+  private taco: any = []
   
   constructor(private http : HttpClient){}
 
   getData() {
     this.http.get('http://taco-randomizer.herokuapp.com/random/?full-taco=true').subscribe((Response) => {
-    this.li = Response;
-    console.log(this.li)
+    this.taco = Response;
+    console.log(this.taco)
     })
   }
 
