@@ -30,7 +30,7 @@ export class RecipeComponent implements OnInit {
 
     getRecipe(){
         //allows to get any item and allow to fetch item synchronously
-        this.httpClient.get<any>('http://taco-randomizer.herokuapp.com').subscribe(
+        this.httpClient.get<any>('http://taco-randomizer.herokuapp.com/random/?full-taco=true').subscribe(
              response => {
                  console.log(response);
                  this.recipes = response;
