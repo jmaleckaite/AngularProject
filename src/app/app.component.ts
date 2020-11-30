@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 
 //service injection of httpclient in the constructor
-@Injectable()
+//@Injectable()
 export class AppComponent {
   title = 'Taco recipes';
 
@@ -26,5 +26,6 @@ export class AppComponent {
     this.tacos = this.taco.shell;
     })
   }
-
 }
+
+
