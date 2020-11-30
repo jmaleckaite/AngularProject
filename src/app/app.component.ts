@@ -10,12 +10,12 @@ import { Observable } from 'rxjs';
 })
 
 //service injection of httpclient in the constructor
-//@Injectable()
+@Injectable()
 export class AppComponent {
   title = 'Taco recipes';
 
-  taco: any;
-  tacos=[];
+  taco: any = [];
+  //tacos=[];
   
   constructor(private http : HttpClient){}
 
@@ -23,7 +23,7 @@ export class AppComponent {
     this.http.get('http://taco-randomizer.herokuapp.com/random/?full-taco=true').subscribe((Response) => {
     console.log(Response);
     this.taco = Response;
-    this.tacos = this.taco.shell;
+    //this.tacos = this.taco.shell;
     })
   }
 }
