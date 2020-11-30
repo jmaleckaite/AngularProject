@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -8,17 +9,21 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 
+//service injection of httpclient in the constructor
+@Injectable()
 export class AppComponent {
   title = 'Taco recipes';
 
-  private taco: any = []
+  taco: any;
+  tacos=[];
   
   constructor(private http : HttpClient){}
 
   getData() {
     this.http.get('http://taco-randomizer.herokuapp.com/random/?full-taco=true').subscribe((Response) => {
+    console.log(Response);
     this.taco = Response;
-    console.log(this.taco)
+    this.tacos = this.taco.shell;
     })
   }
 
